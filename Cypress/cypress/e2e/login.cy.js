@@ -1,7 +1,7 @@
 describe('Тестирование https://login.qa.studio/', function () {
     it('Проверка на позитивный кейс авторизации', function () {
          cy.visit('https://login.qa.studio/');
-         cy.get('#mail').type('german@dolnikov.ru');
+         cy.get('#mail').type('введите почту');
          cy.get('#pass').type('iLoveqastudio1');
          cy.get('#loginButton').click();
          cy.contains('Авторизация прошла успешно');   
@@ -21,8 +21,8 @@ describe('Тестирование https://login.qa.studio/', function () {
     it('Проверка на негативный кейс авторизации, неверный пароль', function () {
         cy.reload();
         cy.visit('https://login.qa.studio/');
-         cy.get('#mail').type('german@dolnikov.ru');
-         cy.get('#pass').type('iLoveasfasfa1');
+         cy.get('#mail').type('введите почту');
+         cy.get('#pass').type('введите пароль');
          cy.get('#loginButton').click();
          cy.contains('Такого логина или пароля нет');   
          cy.get('#exitMessageButton > .exitIcon'); 
@@ -31,8 +31,8 @@ describe('Тестирование https://login.qa.studio/', function () {
     it('Проверка на негативный кейс авторизации, неверная почта', function () {
         cy.reload();
         cy.visit('https://login.qa.studio/');
-         cy.get('#mail').type('lolita@grud.ru');
-         cy.get('#pass').type('iLoveqastudio1');
+         cy.get('#mail').type('введите почту');
+         cy.get('#pass').type('введите пароль');
          cy.get('#loginButton').click();
          cy.contains('Такого логина или пароля нет');   
          cy.get('#exitMessageButton > .exitIcon'); 
@@ -41,8 +41,8 @@ describe('Тестирование https://login.qa.studio/', function () {
      it('Проверка на негативный кейс валидации, почта без "@"', function () {
             cy.reload();
             cy.visit('https://login.qa.studio/');
-             cy.get('#mail').type('germandolnikov.ru');
-             cy.get('#pass').type('iLoveqastudio1');
+             cy.get('#mail').type('введите почту');
+             cy.get('#pass').type('введите пароль');
              cy.get('#loginButton').click();
              cy.contains('Нужно исправить проблему валидации');   
              cy.get('#exitMessageButton > .exitIcon'); 
@@ -51,8 +51,8 @@ describe('Тестирование https://login.qa.studio/', function () {
     it('Проверка на привидение к строчным буквам в логине', function () {
         cy.reload();
         cy.visit('https://login.qa.studio/');
-         cy.get('#mail').type('GerMan@Dolnikov.ru');
-         cy.get('#pass').type('iLoveqastudio1');
+         cy.get('#mail').type('введите почту');
+         cy.get('#pass').type('введите пароль');
          cy.get('#loginButton').click();
          cy.contains('Авторизация прошла успешно');   
          cy.get('#exitMessageButton > .exitIcon');
